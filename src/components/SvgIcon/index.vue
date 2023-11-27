@@ -34,7 +34,7 @@ const styleExternalIcon = computed(() => ({
 }))
 
 /**
- * 项目内图标
+ * 项目内图标 ---
  */
 const iconName = computed(() => `#icon-${props.icon}`)
 
