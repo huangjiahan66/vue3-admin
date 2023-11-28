@@ -14,7 +14,7 @@
         <el-input placeholder="username" name="username" type="text" />
       </el-form-item>
 
-      <!-- 密码 -->
+      <!-- 密码 ====-->
       <el-form-item prop="password">
         <span class="svg-container">
           <svg-icon icon="password"></svg-icon>
