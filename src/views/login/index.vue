@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <el-form class="login-form">
+    <el-form class="login-form" :model="loginForm" :rules="loginrules" ref="loginFormRef">
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
@@ -11,7 +11,7 @@
           <svg-icon icon="user"></svg-icon>
         </span>
 
-        <el-input placeholder="username" name="username" type="text" />
+        <el-input placeholder="username" name="username" type="text" v-model="loginForm.username" />
       </el-form-item>
 
       <!-- 密码 ====-->
@@ -20,20 +20,82 @@
           <svg-icon icon="password"></svg-icon>
         </span>
 
-        <el-input placeholder="password" name="password" />
+        <el-input placeholder="password" name="password" v-model="loginForm.password" :type="passwordType" />
         <span class="show-pwd">
-          <svg-icon icon="eye"></svg-icon>
+          <svg-icon
+            :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
+            @click="handlePasswordTypeChange"
+          ></svg-icon>
         </span>
       </el-form-item>
 
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px">登录</el-button>
+      <el-button type="primary" :loading="loading" style="width: 100%; margin-bottom: 30px" @click="handleLogin">
+        登录
+      </el-button>
     </el-form>
   </div>
 </template>
 
 <script setup>
 import SvgIcon from '@/components/SvgIcon'
-import {} from 'vue'
+import { validatePassword } from './rule'
+import { ref } from 'vue'
+import { useStore } from 'vuex'
+
+// 数据源
+const loginForm = ref({
+  username: 'super-admin',
+  password: '123456'
+})
+
+// rules
+const loginrules = ref({
+  username: [
+    {
+      required: true,
+      trigger: 'blur',
+      message: '用户们为必填项'
+    }
+  ],
+  password: [
+    {
+      required: true,
+      trigger: 'blur',
+      validator: validatePassword()
+    }
+  ]
+})
+
+// 密码框状态切换
+const passwordType = ref('password')
+const handlePasswordTypeChange = () => {
+  if (passwordType.value === 'password') {
+    passwordType.value = 'text'
+  } else {
+    passwordType.value = 'password'
+  }
+}
+
+// 登录
+const loading = ref(false)
+const loginFormRef = ref(null)
+const store = useStore()
+const handleLogin = () => {
+  loginFormRef.value.validate((valid) => {
+    if (!valid) return
+    loading.value = true
+    store
+      .dispatch('user/loginAction', loginForm.value)
+      .then((data) => {
+        loading.value = false
+        // 登录后操作todo...
+      })
+      .catch((err) => {
+        console.log('err组件', err)
+        loading.value = false
+      })
+  })
+}
 </script>
 
 <style lang="scss" scoped>
