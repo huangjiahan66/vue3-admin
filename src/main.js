@@ -8,7 +8,7 @@ import installIcons from '@/icons'
 import './style/index.scss'
 
 import installElementPlus from './plugins/element'
-
+import './permission'
 const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
