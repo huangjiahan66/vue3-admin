@@ -5,7 +5,7 @@ import store from './store'
 // 导入 svgIcon
 import installIcons from '@/icons'
 // 全局样式
-import './style/index.scss'
+import './styles/index.scss'
 
 import installElementPlus from './plugins/element'
 import './permission'
