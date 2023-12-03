@@ -14,6 +14,7 @@ router.beforeEach(async (to, from, next) => {
     } else {
       // 若不存在用户信息，则需要获取用户信息
       if (!store.getters.hasUserInfo) {
+        // debugger
         // 触发获取用户信息的 action
         await store.dispatch('user/getUserInfo')
       }

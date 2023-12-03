@@ -41,7 +41,7 @@ import SvgIcon from '@/components/SvgIcon'
 import { validatePassword } from './rule'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import router from '@/router'
+// import router from '@/router'
 
 // 数据源
 const loginForm = ref({
@@ -90,7 +90,6 @@ const handleLogin = () => {
       .then((data) => {
         loading.value = false
         // 登录后操作todo...
-        router.push('/')
       })
       .catch((err) => {
         console.log('err组件', err)
