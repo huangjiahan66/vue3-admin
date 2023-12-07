@@ -10,12 +10,17 @@
 <script setup>
 import SidebarMenu from './SidebarMenu'
 import { useRouter } from 'vue-router'
-import { getChildrenRoutes } from '@/utils/route'
+import { filterRouters, generateMenus } from '@/utils/route'
+import { computed } from 'vue'
 
 const router = useRouter()
 
-console.log(router.getRoutes())
-console.log(getChildrenRoutes(router.getRoutes()))
+// console.log(router.getRoutes())
+const routes = computed(() => {
+  const filterRoutes = filterRouters(router.getRoutes())
+  return generateMenus(filterRoutes)
+})
+console.log(JSON.stringify(routes.value))
 </script>
 
 <style lang="scss" scoped></style>

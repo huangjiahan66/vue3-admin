@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']">
     <!-- 左侧 -->
     <Sidebar class="sidebar-container" :style="{ backgroundColor: variables.menuBg }"></Sidebar>
     <div class="main-container">
@@ -12,7 +12,6 @@
     </div>
   </div>
 </template>
-
 <script setup>
 import variables from '@/styles/variables.module.scss'
 import NavBar from './components/Navbar.vue'
@@ -38,5 +37,10 @@ import {} from 'vue'
   right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
+  transition: width 0.28s;
+}
+
+.hideSidebar .fixed-header {
+  width: calc(100% - #{$hideSideBarWidth});
 }
 </style>
