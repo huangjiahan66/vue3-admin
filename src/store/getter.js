@@ -11,7 +11,8 @@ const getters = {
     return JSON.stringify(state.user.userInfo) !== '{}'
   },
   cssVar: (state) => variables,
-  sidebarOpened: (state) => state.app.sidebarOpened // 汉堡按钮切换
+  sidebarOpened: (state) => state.app.sidebarOpened, // 汉堡按钮切换
+  language: (state) => state.app.language
 }
 
 export default getters
