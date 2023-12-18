@@ -19,9 +19,7 @@ import SidebarMenu from './SidebarMenu'
 // import { useRouter } from 'vue-router'
 // import { filterRouters, generateMenus } from '@/utils/route'
 // import { computed } from 'vue'
-
 // const router = useRouter()
-
 // console.log(router.getRoutes())
 // const routes = computed(() => {
 //   const filterRoutes = filterRouters(router.getRoutes())

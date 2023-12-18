@@ -56,7 +56,7 @@ export default {
     lang: 'Globalization',
     guide: 'Function Guide',
     home: 'Home',
-    course: 'Course homepage',
+    course: 'huangjiahan',
     logout: 'Log out'
   },
   guide: {
@@ -194,8 +194,7 @@ export default {
     unit: 'w',
     pieChartTitle: 'Regional marketing diagram',
     cloudChartTitle: 'imooc Logo document Cloud',
-    bmapChartTitle:
-      'Revenue performance diagram（Map does not support internationalization）',
+    bmapChartTitle: 'Revenue performance diagram（Map does not support internationalization）',
     tadayReceivable: 'Receivable today',
     tadayBalance: 'Balance Today',
     sheetProvince: 'Province',

@@ -41,11 +41,11 @@
 import SvgIcon from '@/components/SvgIcon'
 import LangSelect from '@/components/LangSelect'
 import { validatePassword } from './rule'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
 // import router from '@/router'
-
+import { watchSwitchLang } from '@/utils/i18n'
 // 数据源
 const loginForm = ref({
   username: 'super-admin',
@@ -59,7 +59,9 @@ const loginrules = ref({
     {
       required: true,
       trigger: 'blur',
-      message: i18n.t('msg.login.usernameRule')
+      message: computed(() => {
+        return i18n.t('msg.login.usernameRule')
+      })
     }
   ],
   password: [
@@ -71,6 +73,9 @@ const loginrules = ref({
   ]
 })
 
+watchSwitchLang(() => {
+  loginFormRef.value.validate()
+})
 // 密码框状态切换
 const passwordType = ref('password')
 const handlePasswordTypeChange = () => {
