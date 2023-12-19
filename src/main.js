@@ -10,6 +10,8 @@ import './styles/index.scss'
 import installElementPlus from './plugins/element'
 import './permission'
 
+import '@/utils/browser_patch'
+
 // i18n
 import i18n from '@/i18n'
 const app = createApp(App)

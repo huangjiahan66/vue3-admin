@@ -3,6 +3,8 @@
     <Hamburger class="hamburger-container" />
     <BreadCrumb />
     <div class="right-menu">
+      <!-- 主题换肤 -->
+      <theme-Select class="right-menu-item hover-effect"></theme-Select>
       <!-- 国际化 -->
       <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
@@ -32,6 +34,7 @@ import {} from 'vue'
 import Hamburger from '@/components/hamburger'
 import BreadCrumb from '@/components/Breadcrumb'
 import LangSelect from '@/components/LangSelect'
+import ThemeSelect from '@/components/ThemeSelect'
 import { useStore } from 'vuex'
 const store = useStore()
 
@@ -73,7 +76,6 @@ const handleLogout = () => {
       font-size: 24px;
       color: #5a5e66;
       vertical-align: text-bottom;
-
       &.hover-effect {
         cursor: pointer;
       }

@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import user from './modules/user'
 import app from './modules/app'
 import getters from './getter'
+import theme from './modules/theme'
 export default createStore({
   state: {},
   getters,
@@ -9,6 +10,7 @@ export default createStore({
   actions: {},
   modules: {
     user,
-    app
+    app,
+    theme
   }
 })

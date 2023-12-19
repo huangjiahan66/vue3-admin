@@ -12,7 +12,8 @@ const getters = {
   },
   cssVar: (state) => variables,
   sidebarOpened: (state) => state.app.sidebarOpened, // 汉堡按钮切换
-  language: (state) => state.app.language
+  language: (state) => state.app.language,
+  mainColor: (state) => state.theme.mainColor
 }
 
 export default getters
